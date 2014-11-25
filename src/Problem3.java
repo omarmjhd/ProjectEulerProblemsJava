@@ -8,31 +8,18 @@ import java.util.ArrayList;
  * @author Omar Mujahid
  */
 public class Problem3 {
-//This works, but the priority queue is inefficient. Maybe an treelist would be better?
-// derp, theres no such thing as a treelist
-//Also, the primeFactor algorithm gets increasingly larger primes, so dont need to be sorted
-//In comes the Arraylist!
 
-    public static long primeFactor(long num) {
+    public static long largestPrimeFactor(long num) {
 
-        ArrayList<Long> primeFactors = primeFactors(num);
-
-        int largestIndex = primeFactors.size() - 1;
-
-        return primeFactors.remove(largestIndex);
-
-    }
-
-    public static ArrayList<Long> primeFactors(long num) {
-
+        ArrayList<Long> primeFactors = new ArrayList<Long>();
         long primeFactor = 2;
-        ArrayList<Long> factors = new ArrayList<Long>();
 
-        while (num > 1) {
+        while (num > 1) { //gets all primefactors
 
             while (num % primeFactor == 0) {
 
-                factors.add(primeFactor);
+                primeFactors.add(primeFactor);
+
                 num /= primeFactor;
 
             }
@@ -41,7 +28,10 @@ public class Problem3 {
 
         }
 
-        return factors;
+        int largestIndex = primeFactors.size() - 1; // gets end of arrayList
+                                                    // not necessary, but makes code easier to understand
+
+        return primeFactors.remove(largestIndex);
 
     }
 
@@ -49,7 +39,7 @@ public class Problem3 {
 
         Problem3 p3 = new Problem3();
 
-        long largest = p3.primeFactor(600851475143L);
+        long largest = p3.largestPrimeFactor(600851475143L);
 
         System.out.println("The solution is: " + largest);
 
