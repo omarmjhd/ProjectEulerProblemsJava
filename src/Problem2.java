@@ -7,47 +7,42 @@
  * find the sum of the even-valued terms.
  *
  * @author Omar Mujahid
+ *
  */
 public class Problem2 {
 
     public static int evenFib(int limit) {
 
-        int sum = 2;
-        int i = 3;
-        int fib1;
-        int fib2;
-        int fib;
+        int fib1 = 1;
+        int fib2 = 2;
+        int fib = fib1 + fib2;
+        int evenSum = 2;
 
-        while (i < limit) {
+        while (fib < limit) {
 
-            fib1 = i - 1;
-            System.out.println("Fib1: " + fib1);
-            fib2 = i;
-
-            System.out.println("Fib2: " + fib2);
+            fib1 = fib2;
+            fib2 = fib;
             fib = fib1 + fib2;
-
-            System.out.println("Fib: " + fib);
-            System.out.println(fib % 2 == 0);
-
-            try {
-                Thread.sleep(10000);
-            } catch (InterruptedException c) {
-                c.printStackTrace();
-            }
 
             if (fib % 2 == 0) {
 
-                System.out.println("Sum: " + sum);
-                sum += fib;
+                evenSum += fib;
 
             }
 
-            i++;
-
         }
 
-        return sum;
+        return evenSum;
+
+    }
+
+    public static void main(String[] args) {
+
+        Problem2 p2 = new Problem2();
+
+        int sum = p2.evenFib(4000000);
+
+        System.out.println("The solution is: " + sum);
 
     }
 }
