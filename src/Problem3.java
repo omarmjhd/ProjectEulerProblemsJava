@@ -1,4 +1,4 @@
-import java.util.PriorityQueue;
+import java.util.ArrayList;
 
 /**
  *
@@ -7,28 +7,26 @@ import java.util.PriorityQueue;
  *
  * @author Omar Mujahid
  */
-public class Problem3 { //This works, but the priority queue is inefficient. Maybe an treelist would be better?
+public class Problem3 {
+//This works, but the priority queue is inefficient. Maybe an treelist would be better?
+// derp, theres no such thing as a treelist
+//Also, the primeFactor algorithm gets increasingly larger primes, so dont need to be sorted
+//In comes the Arraylist!
 
     public static long primeFactor(long num) {
 
-        PriorityQueue<Long> primeFactors = primeFactors(num);
+        ArrayList<Long> primeFactors = primeFactors(num);
 
-        long prime = 0;
+        int largestIndex = primeFactors.size() - 1;
 
-        while (!primeFactors.isEmpty()) {
-
-            prime = primeFactors.poll();
-
-        }
-
-        return prime;
+        return primeFactors.remove(largestIndex);
 
     }
 
-    public static PriorityQueue<Long> primeFactors(long num) {
+    public static ArrayList<Long> primeFactors(long num) {
 
         long primeFactor = 2;
-        PriorityQueue<Long> factors = new PriorityQueue<Long>();
+        ArrayList<Long> factors = new ArrayList<Long>();
 
         while (num > 1) {
 
