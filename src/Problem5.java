@@ -31,11 +31,11 @@ public class Problem5 {
 
     public static void main(String[] args) {
 
-        Problem5 p3 = new Problem5();
+        Problem5 p5 = new Problem5();
 
-        int largest = p3.smallest();
+        int smallest = p5.smallest();
 
-        System.out.println("The solution is: " + largest);
+        System.out.println("The solution is: " + smallest);
 
     }
 }
