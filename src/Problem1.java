@@ -5,9 +5,10 @@
  * Find the sum of all the multiples of 3 or 5 below 1000.
  *
  * @author Omar Mujahid
+ * @answer 233168
  *
  */
-public class Problem1 { //Correct answer is: 233168
+public class Problem1 {
 
 
     public static int multiplesOf3and5(int limit) {
