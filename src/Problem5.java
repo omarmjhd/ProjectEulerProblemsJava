@@ -4,6 +4,7 @@
  * What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
  *
  * @author Omar Mujahid
+ * @answer 232792560
  */
 public class Problem5 {
 

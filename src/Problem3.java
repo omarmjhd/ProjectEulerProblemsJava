@@ -6,6 +6,7 @@ import java.util.ArrayList;
  * What is the largest prime factor of the number 600851475143 ?
  *
  * @author Omar Mujahid
+ * @answer 6857
  */
 public class Problem3 {
 
