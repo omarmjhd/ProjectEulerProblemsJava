@@ -7,7 +7,7 @@
  * @author Omar Mujahid
  *
  */
-public class Problem1 {
+public class Problem1 { //Correct answer is: 233168
 
 
     public static int multiplesOf3and5(int limit) {
