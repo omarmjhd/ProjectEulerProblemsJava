@@ -42,7 +42,7 @@ public class Problem7 { //TODO: check website to see if correct before pushing t
 
         Problem7 p7 = new Problem7();
 
-        int largest = p7.largestPrime(6);
+        int largest = p7.largestPrime(10001);
         //2, 3, 5, 7, 11, 13, 17, 19, 23, 29
 
         System.out.println("The solution is: " + largest);
