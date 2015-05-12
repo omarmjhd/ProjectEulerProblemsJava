@@ -5,9 +5,15 @@
  * Find the largest palindrome made from the product of two 3-digit numbers.
  *
  * @author Omar Mujahid
+ * @answer 906609
  */
 
-public class Problem4 { //Doesnt work yet
+import java.lang.Integer;
+import java.lang.System;
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Problem4 {
 
     /**
      *
@@ -16,13 +22,13 @@ public class Problem4 { //Doesnt work yet
      *
      * @param num1
      * @param num2
-     * @return
+     * @return true or false depending if the numbers create a palindrome when multiplied
      */
-    private static boolean palindrome(int num1, int num2) { //this works (I think, need to check odds)
+    private static boolean palindrome(int num1, int num2) {
 
         int mult = num1 * num2;
         char[] chars = Integer.toString(mult).toCharArray(); //character array of the integer
-        int length = chars.length; //how do I handle odds?
+        int length = chars.length;
 
         for (int i = 0; i <= length / 2; i++) {
 
@@ -38,32 +44,38 @@ public class Problem4 { //Doesnt work yet
 
     }
 
-    public static int largestPalindrome(int num1, int num2) {
-    //this is wrong because the largest can come from an uneven decrement
+    /**
+     *
+     * Method to calculate the largest palindrome possible from a product of 2 integers who's max boundary is set by
+     * the parameters
+     *
+     * @param bound, the upper bound to use for the products
+     * @return the largest possible palindrome of products that are less than the bound
+     */
+    public int largestPalindrome(int bound) {
 
-        int first = num1;
-        int second = num2;
-        boolean palindrome = palindrome(first, second);
-        int lastDecremented = 1;
+        ArrayList<Integer> palindromes = new ArrayList<Integer>(); // ArrayList so it can be sorted
 
-        while (!palindrome) {
+        for (int i = 0; i < bound; i++) { // go from 0 to the bound
 
-            if (lastDecremented == 1) {
+            for (int j = 0; j < bound; j++) { // go from 0 to the bound
 
-                second -= 1;
-                palindrome = palindrome(first, second);
-                lastDecremented = 2;
+                if (palindrome(i, j) == true) { // if palindrome, add to the list
 
-            } else {
+                    palindromes.add(i * j);
 
-                first -= 1;
-                palindrome = palindrome(first, second);
-                lastDecremented = 1;
+                }
 
             }
+
         }
 
-        return first * second;
+        Collections.sort(palindromes); // sort list
+
+        int largestIndex = palindromes.size() - 1; // gets end of ArrayList (index of largest palindrome in this case)
+
+        return palindromes.get(largestIndex); //return the largest palindrome
+
     }
 
 
@@ -71,7 +83,7 @@ public class Problem4 { //Doesnt work yet
 
         Problem4 p4 = new Problem4();
 
-        System.out.println("The solution is: " + p4.largestPalindrome(999, 999));
+        System.out.println("The solution is: " + p4.largestPalindrome(1000));
 
 
     }
